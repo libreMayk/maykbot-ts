@@ -4,11 +4,22 @@ import config from "../config";
 import { Bot } from "../structures/Bot";
 import { IBotCommand, TypedEvent } from "../types";
 import { commandFiles } from "../files";
+import { statuses } from "../json/data.json";
 
 export default TypedEvent({
   eventName: "ready",
   once: async (client: Bot) => {
-    client.logger.console.info(`Logged in as ${client.user?.tag}.`);
+    const status = () => {
+      setInterval(() => {
+        client.user.setActivity(
+          `${statuses[Math.floor(Math.random() * statuses.length)]}`,
+          {
+            type: "STREAMING",
+            url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          }
+        );
+      }, 10000);
+    };
 
     const commandArr: object[] = [];
 
@@ -31,5 +42,8 @@ export default TypedEvent({
     rest.put(Routes.applicationCommands(client.user.id), {
       body: commandArr,
     });
+
+    client.logger.console.info(`Logged in as ${client.user?.tag}.`);
+    status();
   },
 });

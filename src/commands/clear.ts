@@ -12,9 +12,20 @@ export const command: IBotCommand = {
         .setName("amount")
         .setDescription("Amount of messages to delete")
         .setRequired(true)
+        .setMaxValue(100)
     ),
   requiredPerms: ["MANAGE_MESSAGES"],
   async execute(interaction) {
+    const amount = interaction.options.getNumber("amount", true);
+
+    if (amount <= 0) {
+      interaction.reply({
+        content: ":x: Can't delete less than 1 message!",
+        ephemeral: true,
+      });
+      return;
+    }
+
     const deleted = await interaction.channel!.bulkDelete(
       interaction.options.getNumber("amount", true),
       true

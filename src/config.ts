@@ -29,6 +29,7 @@ interface IConfig {
   reactionMessages: IReactionMessage[];
   memberRoleId: string;
   colors: Colors;
+  logoURL: string;
 }
 
 const config: IConfig = {
@@ -63,6 +64,8 @@ const config: IConfig = {
     error: "RED",
     warn: "YELLOW",
   },
+  logoURL:
+    "https://www.mayk.fi/wp-content/uploads/2017/06/pelkka%CC%88piiArtboard-2-150x150.png",
 };
 
 export default config;
