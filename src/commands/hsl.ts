@@ -228,9 +228,9 @@ export const command: IBotCommand = {
               .setThumbnail(config.hslLogoURL)
               .setTitle(`Helsingin Seudun Liikenne`)
               .setDescription(
-                `Query: [\`${argsNew}\`](https://reittiopas.hsl.fi/reitti/POS/${encodeURIComponent(
+                `**Query:** [\`${argsNew}\`](https://reittiopas.hsl.fi/reitti/POS/${encodeURIComponent(
                   prop.label
-                )})\n${prop.region}, ${prop.localadmin}`
+                )})\n${prop.neighbourhood}, ${prop.localadmin}, ${prop.region}`
               )
               .addFields(
                 {
@@ -240,7 +240,7 @@ export const command: IBotCommand = {
                 },
                 {
                   name: `📍 Location`,
-                  value: `${element.geometry.coordinates[0]}, ${element.geometry.coordinates[1]}`,
+                  value: `${element.geometry.coordinates[1]}, ${element.geometry.coordinates[0]}`,
                   inline: false,
                 }
               )
