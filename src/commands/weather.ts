@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import axios from "axios";
 import { CommandInteraction, MessageEmbed } from "discord.js";
+import config from "../config";
 import { IBotCommand } from "../types";
 
 const roundToNearest30 = (date = new Date()) => {
@@ -69,41 +70,40 @@ export const command: IBotCommand = {
           }
         };
 
-        const weatherIconMoji = () => {
-          switch (weatherData.icon) {
+        const weatherIconMoji = (str: string) => {
+          switch (str) {
             case "01d":
               return ":sunny:";
             case "01n":
               return ":new_moon:";
-            case /02n|g/g:
+            case "02d" || "02n":
               return ":partly_sunny:";
-            case /03n|g/g:
+            case "03d" || "03n":
               return ":cloud:";
-            case /04n|g/g:
+            case "04d" || "04n":
               return ":cloud:";
-            case /09n|g/g:
+            case "09d" || "09n":
               return ":white_sun_rain_cloud:";
-            case /10n|g/g:
+            case "10d" || "10n":
               return ":cloud_rain:";
-            case /11n|g/g:
+            case "11d" || "11n":
               return ":thunder_cloud_rain:";
-            case /13n|g/g:
+            case "13d" || "13n":
               return ":snowflake:";
-            case /50n|g/g:
+            case "50d" || "50n":
               return ":fog:";
           }
         };
 
         let weatherEmbed = new MessageEmbed()
-          .setColor("BLURPLE")
+          .setColor(config.colors.primary)
           .setTitle(
-            `${weatherIconMoji()} Weather in Maunula at ${new Date().toLocaleString(
-              "en-FI",
-              {
-                hour: "numeric",
-                minute: "numeric",
-              }
-            )}`
+            `${weatherIconMoji(
+              weatherData.icon
+            )} Weather in Maunula at ${new Date().toLocaleString("en-FI", {
+              hour: "numeric",
+              minute: "numeric",
+            })}`
           )
           .setThumbnail(
             `https://openweathermap.org/img/wn/${weatherData.icon}@4x.png`
