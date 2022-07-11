@@ -30,6 +30,7 @@ interface IConfig {
   memberRoleId: string;
   colors: Colors;
   logoURL: string;
+  hslLogoURL: string;
 }
 
 const config: IConfig = {
@@ -66,6 +67,8 @@ const config: IConfig = {
   },
   logoURL:
     "https://www.mayk.fi/wp-content/uploads/2017/06/pelkka%CC%88piiArtboard-2-150x150.png",
+  hslLogoURL:
+    "https://pbs.twimg.com/profile_images/574851566508732416/vwfmZj1S_400x400.png",
 };
 
 export default config;

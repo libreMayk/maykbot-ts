@@ -1,4 +1,8 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
+import {
+  SlashCommandBuilder,
+  SlashCommandSubcommandBuilder,
+  SlashCommandSubcommandsOnlyBuilder,
+} from "@discordjs/builders";
 import {
   ClientEvents,
   CommandInteraction,
@@ -9,7 +13,8 @@ import { Bot } from "./structures/Bot";
 export interface IBotCommand {
   data:
     | SlashCommandBuilder
-    | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
+    | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">
+    | SlashCommandSubcommandsOnlyBuilder;
   requiredPerms?: PermissionResolvable;
   execute: (interaction: CommandInteraction<"cached">, client: Bot) => unknown;
 }
