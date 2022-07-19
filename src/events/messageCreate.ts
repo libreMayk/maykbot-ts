@@ -6,6 +6,14 @@ import utils from "./../utils";
 
 const forbiddenPhrases: string[] = ["discord.gg"];
 
+function truncateString(str: string, num: number) {
+  if (str.length > num) {
+    return str.slice(0, num) + "...";
+  } else {
+    return str;
+  }
+}
+
 export default TypedEvent({
   eventName: "messageCreate",
   on: async (client: Bot, message: Message) => {
@@ -45,7 +53,8 @@ function log(message: Message, client: Bot) {
         )),
         false
       );
-    else embed.addField("• Content", message.content, false);
+    else
+      embed.addField("• Content", truncateString(message.content, 64), false);
   } else {
     embed.addField(
       "• Content",
@@ -64,6 +73,9 @@ function log(message: Message, client: Bot) {
     client.channels.cache.get(config.logChannelId) as TextChannel
   );
   client.logger.console.info(
-    `${message.author.tag} has sent a message \"${message.content}\"`
+    `${message.author.tag} has sent a message \"${truncateString(
+      message.content,
+      32
+    )}\"`
   );
 }

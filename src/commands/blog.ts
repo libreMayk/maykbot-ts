@@ -1,6 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, MessageEmbed } from "discord.js";
-import getColors from "get-image-colors";
 import axios from "axios";
 import parser from "node-html-parser";
 import { IBotCommand } from "../types";

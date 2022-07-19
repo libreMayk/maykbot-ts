@@ -15,5 +15,9 @@ export default TypedEvent({
   ) => {
     const member = reaction.message.guild?.members.cache.get(user.id);
     if (!member) return;
+
+    if (reaction.emoji.name === "🖕") {
+      await reaction.remove();
+    }
   },
 });

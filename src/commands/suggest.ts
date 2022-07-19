@@ -26,18 +26,19 @@ export const command: IBotCommand = {
 
     const suggestionEmbed = new MessageEmbed()
       .setColor(config.colors.primary)
-      .setTitle(
-        `${interaction.options.getString("title")} - ${
-          interaction.member?.user.username
-        }#${interaction.member?.user.discriminator}`
-      )
-      .setDescription(interaction.options.getString("description", true));
+      .setAuthor({
+        name: interaction.user.tag,
+        iconURL: interaction.user.displayAvatarURL(),
+      })
+      .setTitle(`${interaction.options.getString("title")}`)
+      .setDescription(interaction.options.getString("description", true))
+      .setTimestamp();
 
     const message = await suggestionsChannel.send({
       embeds: [suggestionEmbed],
     });
-    await message.react("✅");
-    message.react("❌");
+    await message.react("👍");
+    message.react("👎");
 
     const successMessageEmbed = new MessageEmbed()
       .setColor(config.colors.success)

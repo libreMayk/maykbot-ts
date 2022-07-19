@@ -15,14 +15,13 @@
   "author": "libreMayk",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/builders": "^0.16.0-dev.1657411897-f0b68d5",
+    "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
     "@types/node-fetch": "^2.6.2",
     "axios": "^0.27.2",
     "discord-api-types": "^0.36.1",
     "discord.js": "^13.8.1",
     "filehound": "^1.17.6",
-    "get-image-colors": "^4.0.1",
     "mathjs": "^10.6.4",
     "node-fetch": "^3.2.6",
     "node-html-parser": "^5.3.3",
@@ -31,7 +30,6 @@
     "pretty-print-ms": "^1.0.5"
   },
   "devDependencies": {
-    "@types/get-image-colors": "^4.0.1",
     "@types/node": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
