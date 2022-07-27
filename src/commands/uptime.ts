@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import { IBotCommand } from "../types";
 import millisecondsToString from "pretty-print-ms";
 import config from "../config";
@@ -8,7 +8,7 @@ export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("uptime")
     .setDescription("⏳ Displays the bot's uptime"),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     const uptimeEmbed = new MessageEmbed()
       .setTitle("⏳ Uptime")
       .setDescription(

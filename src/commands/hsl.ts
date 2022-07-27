@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import config from "../config";
 import { IBotCommand } from "../types";
 import axios from "axios";
@@ -25,7 +25,7 @@ export const command: IBotCommand = {
             .setRequired(true)
         )
     ),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     const hslEmbed = new MessageEmbed()
       .setColor("#007ac9")
       .setAuthor({

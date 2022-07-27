@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import config from "../config";
 import { IBotCommand } from "../types";
 import { timeout } from "../utils";
@@ -8,7 +8,7 @@ export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("🏓 Replies with a pong!"),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     if (Math.random() < 0.9) {
       const pingEmbed = new MessageEmbed()
         .setTitle("Pong!")

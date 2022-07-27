@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import axios from "axios";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import config from "../config";
 import { IBotCommand } from "../types";
 
@@ -30,7 +30,7 @@ export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("weather")
     .setDescription("🌡️ Displays current weather in Maunula."),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     try {
       let lat = 60.22984760837544;
       let lon = 24.925459757586037;

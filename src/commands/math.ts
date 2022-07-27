@@ -1,6 +1,6 @@
 import { code } from "./../utils";
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import { evaluate } from "mathjs";
 import { IBotCommand } from "../types";
 import config from "../config";
@@ -15,7 +15,7 @@ export const command: IBotCommand = {
         .setDescription("🧮 Calculation to evaluate.")
         .setRequired(true)
     ),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     const calc = interaction.options.getString("calculation", true);
 
     try {

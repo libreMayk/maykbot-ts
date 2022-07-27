@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import axios from "axios";
 import parser from "node-html-parser";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import { IBotCommand } from "../types";
 import config from "../config";
 
@@ -17,7 +17,7 @@ export const command: IBotCommand = {
         .setMaxValue(15)
         .setRequired(false)
     ),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     const args = interaction.options.getNumber("amount");
     const url = "https://www.mayk.fi/kalenteri/";
 

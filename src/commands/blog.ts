@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { CommandInteraction, MessageEmbed } from "discord.js";
+import { MessageEmbed } from "discord.js";
 import axios from "axios";
 import parser from "node-html-parser";
 import { IBotCommand } from "../types";
@@ -9,7 +9,7 @@ export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("blog")
     .setDescription("✍️ Displays the latest blogpost from mayk.fi."),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     const url = "https://www.mayk.fi/blogi/";
 
     axios.get(url).then((res) => {
