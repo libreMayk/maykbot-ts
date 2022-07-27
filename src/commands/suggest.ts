@@ -6,7 +6,7 @@ import { IBotCommand } from "../types";
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("suggest")
-    .setDescription("Write a new suggestion for the channel.")
+    .setDescription("🖋️ Write a new suggestion for the channel.")
     .addStringOption((option) =>
       option
         .setName("title")
@@ -30,7 +30,7 @@ export const command: IBotCommand = {
         name: interaction.user.tag,
         iconURL: interaction.user.displayAvatarURL(),
       })
-      .setTitle(`${interaction.options.getString("title")}`)
+      .setTitle(`🖋️ ${interaction.options.getString("title")}`)
       .setDescription(interaction.options.getString("description", true))
       .setTimestamp();
 
@@ -43,7 +43,7 @@ export const command: IBotCommand = {
     const successMessageEmbed = new MessageEmbed()
       .setColor(config.colors.success)
       .setDescription(
-        `Suggestion successfully created at <#${config.suggestionsChannelId}>`
+        `🖋️ Suggestion successfully created at <#${config.suggestionsChannelId}>`
       );
 
     interaction.reply({ embeds: [successMessageEmbed], ephemeral: true });

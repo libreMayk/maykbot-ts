@@ -8,7 +8,7 @@ import config from "../config";
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("blog")
-    .setDescription("Displays the latest blogpost from mayk.fi."),
+    .setDescription("✍️ Displays the latest blogpost from mayk.fi."),
   async execute(interaction: CommandInteraction<"cached">) {
     const url = "https://www.mayk.fi/blogi/";
 
@@ -37,7 +37,7 @@ export const command: IBotCommand = {
 
       const blogEmbed = new MessageEmbed()
         .setTitle(
-          `${
+          `✍️ ${
             title?.textContent !== undefined ? title?.textContent : "Blog"
           } - mayk.fi`
         )
@@ -48,7 +48,9 @@ export const command: IBotCommand = {
           url: url,
         })
         .setDescription(
-          desc ? desc.replace(/\s\s+/g, " ") : `[Learn more...](${link})`
+          desc
+            ? `${desc.replace(/\s\s+/g, " ")}\n[Learn more...](${link})`
+            : `[Learn more...](${link})`
         )
         .setFooter({
           text: `🗓️ ${timestamp}`,

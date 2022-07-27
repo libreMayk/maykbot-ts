@@ -7,7 +7,7 @@ import axios from "axios";
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("hsl")
-    .setDescription("All kinds of interesting data with HSL")
+    .setDescription("🚌 All kinds of interesting data with HSL")
     .addSubcommand((subcommand) =>
       subcommand.setName("data").setDescription("Default HSL data.")
     )
@@ -155,9 +155,9 @@ export const command: IBotCommand = {
                     return stoptimes
                       ? stoptimes.trip.route.shortName
                       : "No route data";
-                  })} (${place.stoptimes.map((stoptimes: any) => {
+                  })} -- ${place.stoptimes.map((stoptimes: any) => {
                     return stoptimes ? stoptimes.headsign : "No bus";
-                  })})\n🛬 **Arrival:** ${place.stoptimes.map(
+                  })}\n🛬 **Arrival:** ${place.stoptimes.map(
                     (stoptimes: any) => {
                       return stoptimes
                         ? toTime(stoptimes.realtimeArrival)

@@ -6,7 +6,7 @@ import config from "../config";
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("clear")
-    .setDescription("Delete specified amount of messages.")
+    .setDescription("🧹 Delete a specified amount of messages.")
     .addNumberOption((option) =>
       option
         .setName("amount")
@@ -20,7 +20,11 @@ export const command: IBotCommand = {
 
     if (amount <= 0) {
       interaction.reply({
-        content: ":x: Can't delete less than 1 message!",
+        embeds: [
+          new MessageEmbed()
+            .setColor(config.colors.error)
+            .setDescription(":x: Can't delete less than `1` message!"),
+        ],
         ephemeral: true,
       });
       return;
@@ -33,7 +37,11 @@ export const command: IBotCommand = {
 
     const successEmbed = new MessageEmbed()
       .setColor(config.colors.success)
-      .setDescription(`Deleted \`${deleted.size}\` messages.`);
+      .setDescription(
+        `🧹 Deleted \`${deleted.size}\` ${
+          deleted.size != 1 ? "messages" : "message"
+        }.`
+      );
     await interaction.reply({ embeds: [successEmbed], ephemeral: true });
   },
 };

@@ -12,7 +12,7 @@ export const command: IBotCommand = {
     .addStringOption((option) =>
       option
         .setName("calculation")
-        .setDescription("Calculation to evaluate.")
+        .setDescription("🧮 Calculation to evaluate.")
         .setRequired(true)
     ),
   async execute(interaction: CommandInteraction<"cached">) {

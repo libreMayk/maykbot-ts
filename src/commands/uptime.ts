@@ -7,10 +7,10 @@ import config from "../config";
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("uptime")
-    .setDescription("Displays the bot's uptime"),
+    .setDescription("⏳ Displays the bot's uptime"),
   async execute(interaction: CommandInteraction<"cached">) {
     const uptimeEmbed = new MessageEmbed()
-      .setTitle("Uptime")
+      .setTitle("⏳ Uptime")
       .setDescription(
         interaction.client.uptime != null
           ? `The bot has been up for \`${millisecondsToString(

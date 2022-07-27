@@ -7,7 +7,7 @@ import { timeout } from "../utils";
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Replies with a pong! 🏓"),
+    .setDescription("🏓 Replies with a pong!"),
   async execute(interaction: CommandInteraction<"cached">) {
     if (Math.random() < 0.9) {
       const pingEmbed = new MessageEmbed()

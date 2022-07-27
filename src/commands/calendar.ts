@@ -12,7 +12,7 @@ export const command: IBotCommand = {
     .addNumberOption((option) =>
       option
         .setName("amount")
-        .setDescription("Amount of events to display in the embed.")
+        .setDescription("🗓️ Amount of events to display in the embed.")
         .setMinValue(3)
         .setMaxValue(15)
         .setRequired(false)

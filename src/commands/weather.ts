@@ -8,7 +8,6 @@ const roundToNearest30 = (date = new Date()) => {
   const minutes = 30;
   const ms = 1000 * 60 * minutes;
 
-  // 👇️ replace Math.round with Math.ceil to always round UP
   return new Date(Math.round(date.getTime() / ms) * ms);
 };
 
@@ -30,7 +29,7 @@ const getDateEmoji = (num: number) => {
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("weather")
-    .setDescription("Displays current weather in Maunula."),
+    .setDescription("🌡️ Displays current weather in Maunula."),
   async execute(interaction: CommandInteraction<"cached">) {
     try {
       let lat = 60.22984760837544;
@@ -76,21 +75,29 @@ export const command: IBotCommand = {
               return ":sunny:";
             case "01n":
               return ":new_moon:";
-            case "02d" || "02n":
+            case "02d":
+            case "02n":
               return ":partly_sunny:";
-            case "03d" || "03n":
+            case "03d":
+            case "03n":
               return ":cloud:";
-            case "04d" || "04n":
+            case "04d":
+            case "04n":
               return ":cloud:";
-            case "09d" || "09n":
+            case "09d":
+            case "09n":
               return ":white_sun_rain_cloud:";
-            case "10d" || "10n":
+            case "10d":
+            case "10n":
               return ":cloud_rain:";
-            case "11d" || "11n":
+            case "11d":
+            case "11n":
               return ":thunder_cloud_rain:";
-            case "13d" || "13n":
+            case "13d":
+            case "13n":
               return ":snowflake:";
-            case "50d" || "50n":
+            case "50d":
+            case "50n":
               return ":fog:";
           }
         };
@@ -117,26 +124,26 @@ export const command: IBotCommand = {
           .addFields(
             {
               name: "Temperature",
-              value: `${(json.main.temp - 273.15).toFixed(1)}°C`,
+              value: `\`${(json.main.temp - 273.15).toFixed(1)}\`°C`,
               inline: true,
             },
             {
               name: "Air pressure",
-              value: `${json.main.pressure} hPa`,
+              value: `\`${json.main.pressure}\` hPa`,
               inline: true,
             },
             {
               name: "Air humidity",
-              value: `${json.main.humidity}%`,
+              value: `\`${json.main.humidity}\`%`,
               inline: true,
             },
             {
               name: `Wind`,
-              value: `**Speed**: ${
+              value: `**Speed**: \`${
                 json.wind.speed ? json.wind.speed : "no data"
-              } m/s\n**Direction**: ${
+              }\` m/s\n**Direction**: \`${
                 json.wind.deg ? json.wind.deg : "no data"
-              }° ${windDirMoji()}`,
+              }\`° ${windDirMoji()}`,
               inline: true,
             },
             {

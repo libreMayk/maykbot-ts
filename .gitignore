@@ -4,5 +4,4 @@
 package-lock.json
 
 # temp
-src/commands/menu.ts
-src/commands/covid.ts
+/src/commands/menu.ts

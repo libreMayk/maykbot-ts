@@ -6,7 +6,7 @@ import { IBotCommand } from "../types";
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("repeat")
-    .setDescription("Repeats a given message")
+    .setDescription("🔁 Repeats a given message")
     .addStringOption((option) =>
       option
         .setName("message")
@@ -19,7 +19,7 @@ export const command: IBotCommand = {
 
     const successEmbed = new MessageEmbed()
       .setColor(config.colors.success)
-      .setDescription("Repeated your message.");
+      .setDescription("🔁 Repeated your message.");
     interaction.reply({ embeds: [successEmbed], ephemeral: true });
   },
 };
