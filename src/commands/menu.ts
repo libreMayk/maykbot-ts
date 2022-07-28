@@ -1,23 +1,19 @@
-import parser from "node-html-parser";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import axios from "axios";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import config from "../config";
 import { IBotCommand } from "../types";
-import { stdout } from "process";
 
 export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("menu")
-    .setDescription("🍽️ What's on the menu today?"),
+    .setDescription("🍴 What's on the menu today?"),
   async execute(interaction: CommandInteraction<"cached">) {
     const url = "https://mayk.fi/tietoa-meista/ruokailu/";
-
     const menuEmbed = new MessageEmbed().setTimestamp();
 
     axios.get(url).then((res) => {
       const regex = /<p class="ruoka-header-(ruoka|kasvisruoka)">([^<]*)</g;
-
       const str = res.data;
       let m;
 
