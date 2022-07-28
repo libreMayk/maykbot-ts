@@ -2,6 +2,3 @@
 /dist
 .env
 package-lock.json
-
-# temp
-/src/commands/menu.ts
