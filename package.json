@@ -1,44 +1,45 @@
 {
-  "name": "maykbot-ts",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./dist/index.js",
-  "scripts": {
-    "dev": "ts-node-dev --respawn ./src/index.ts",
-    "build": "tsc",
-    "start": "node .",
-    "check": "tsc -w --noEmit",
-    "format": "prettier --write ./src",
-    "lint": "eslint ./src --ext .ts"
-  },
-  "keywords": [],
-  "author": "libreMayk",
-  "license": "ISC",
-  "dependencies": {
-    "@discordjs/builders": "^0.15.0",
-    "@discordjs/rest": "^0.5.0",
-    "@types/node-fetch": "^2.6.2",
-    "axios": "^0.27.2",
-    "discord-api-types": "^0.36.1",
-    "discord.js": "^13.8.1",
-    "filehound": "^1.17.6",
-    "mathjs": "^10.6.4",
-    "node-fetch": "^3.2.6",
-    "node-html-parser": "^5.3.3",
-    "pino": "^8.1.0",
-    "pino-pretty": "^8.1.0",
-    "pretty-print-ms": "^1.0.5"
-  },
-  "devDependencies": {
-    "@types/node": "^18.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
-    "dotenv": "^16.0.1",
-    "eslint": "^8.19.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "nodemon": "^2.0.19",
-    "prettier": "^2.7.1",
-    "ts-node-dev": "^2.0.0"
-  }
+    "name": "maykbot-ts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "scripts": {
+        "dev": "ts-node-dev --respawn ./src/index.ts",
+        "build": "tsc",
+        "start": "node .",
+        "check": "tsc -w --noEmit",
+        "format": "prettier --write ./src",
+        "lint": "eslint ./src --ext .ts",
+        "prod": "tsc; node ."
+    },
+    "keywords": [],
+    "author": "libreMayk",
+    "license": "ISC",
+    "dependencies": {
+        "@discordjs/builders": "^0.15.0",
+        "@discordjs/rest": "^0.5.0",
+        "@types/node-fetch": "^2.6.2",
+        "axios": "^0.27.2",
+        "discord-api-types": "^0.36.1",
+        "discord.js": "^13.8.1",
+        "filehound": "^1.17.6",
+        "mathjs": "^10.6.4",
+        "node-fetch": "^3.2.6",
+        "node-html-parser": "^5.3.3",
+        "pino": "^8.1.0",
+        "pino-pretty": "^8.1.0",
+        "pretty-print-ms": "^1.0.5"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.3",
+        "@typescript-eslint/eslint-plugin": "^5.30.5",
+        "@typescript-eslint/parser": "^5.30.5",
+        "dotenv": "^16.0.1",
+        "eslint": "^8.19.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "nodemon": "^2.0.19",
+        "prettier": "^2.7.1",
+        "ts-node-dev": "^2.0.0"
+    }
 }

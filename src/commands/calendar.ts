@@ -66,20 +66,15 @@ export const command: IBotCommand = {
           event: eventTimeArray[i].event,
         };
 
-        calEmbed.addField(
-          `${dict.time}`,
-          `${
-            dict.event.startsWith("YO-koe")
-              ? `\🔖 ${dict.event}`.replace(/YO-koe\:/g, "**YO-koe:**")
-              : dict.event.includes("loma")
-              ? `🎉 **${dict.event}**`
-              : dict.event.startsWith("Lukuvuosi") &&
-                dict.event.includes("alkaa")
-              ? `📖 **${dict.event}**`
-              : dict.event
-          }`,
-          false
-        );
+        const content = dict.event.startsWith("YO-koe")
+          ? `\🔖 ${dict.event}`.replace(/YO-koe\:/g, "**YO-koe:**")
+          : dict.event.includes("loma")
+          ? `🎉 **${dict.event}**`
+          : dict.event.startsWith("Lukuvuosi") && dict.event.includes("alkaa")
+          ? `📖 **${dict.event}**`
+          : dict.event;
+
+        calEmbed.addField(`${dict.time}`, `${content}`, false);
       }
 
       interaction.reply({ embeds: [calEmbed] });

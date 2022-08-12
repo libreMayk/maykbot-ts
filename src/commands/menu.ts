@@ -26,6 +26,8 @@ export const command: IBotCommand = {
 
         m.forEach((match, groupIndex) => {
           if (groupIndex != 0 && groupIndex != 1) {
+            let dayFin = match.replace(/\s/g, "");
+
             menu.push(match);
           }
         });
@@ -50,12 +52,7 @@ export const command: IBotCommand = {
         let day = days[i / 2];
 
         if (i % 2 == 0) {
-          if (day == today) {
-            date.push(`✨ **${day}**`);
-          } else {
-            date.push(day);
-          }
-
+          date.push(day);
           norm.push(menu[i]);
         } else {
           vege.push(menu[i]);
@@ -63,11 +60,15 @@ export const command: IBotCommand = {
       }
 
       for (let i = 0; i < 5; i++) {
-        menuEmbed.addField(
-          `${date[i]}`,
-          `${`🍴 ${norm[i]}\n🌱 ${vege[i]}`}`,
-          false
-        );
+        if (date[i] != undefined) {
+          const len = days.length - date.length + i;
+
+          menuEmbed.addField(
+            `${days[len] == today ? `✨ **${days[len]}**` : days[len]}`,
+            `${`🍴 ${norm[i]}\n🌱 ${vege[i]}`}`,
+            false
+          );
+        }
       }
 
       menuEmbed
