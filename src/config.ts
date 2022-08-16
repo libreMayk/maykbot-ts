@@ -22,8 +22,6 @@ interface IConfig {
 
   suggestionsChannelId: string;
   welcomeChannelId: string;
-  announcementsChannelId: string;
-  announcementsRoleId: string;
   guildId: string;
   logChannelId: string;
   reactionMessages: IReactionMessage[];
@@ -39,12 +37,12 @@ const config: IConfig = {
   // Use info (Wont show debug logs), or Debug (Shows EVERYTHING)
   logLevel: "info",
 
-  suggestionsChannelId: "895008320090431489",
-  announcementsChannelId: "875684745151926284",
-  announcementsRoleId: "995394637655199804",
-  welcomeChannelId: "875684745151926283",
-  guildId: "875684744690532402",
-  logChannelId: "896310843489267722",
+  // these ids are required!
+  suggestionsChannelId: process.env.SUGGESTIONS_CHANNEL_ID!,
+  welcomeChannelId: process.env.WELCOME_CHANNEL_ID!,
+  guildId: process.env.GUILD_ID!,
+  logChannelId: process.env.LOG_CHANNEL_ID!,
+  memberRoleId: process.env.MEMBER_ROLE_ID!,
   reactionMessages: [
     {
       title: "Marks",
@@ -58,7 +56,6 @@ const config: IConfig = {
       },
     },
   ],
-  memberRoleId: "875685774052438037",
   colors: {
     primary: "BLURPLE",
     success: "GREEN",
