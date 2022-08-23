@@ -8,7 +8,7 @@ export const command: IBotCommand = {
   data: new SlashCommandBuilder()
     .setName("menu")
     .setDescription("🍴 What's on the menu today?"),
-  async execute(interaction: CommandInteraction<"cached">) {
+  async execute(interaction) {
     const url = "https://mayk.fi/tietoa-meista/ruokailu/";
     const menuEmbed = new MessageEmbed().setTimestamp();
 
