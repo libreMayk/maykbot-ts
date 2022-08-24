@@ -1,11 +1,12 @@
 {
-  "statuses": [
-    "Maunulan yhteiskoulu",
-    "food",
-    "weather in Maunula",
-    "blog",
-    "COVID-19 data",
-    "HSL"
-  ],
-  "swearwords": []
+    "statuses": [
+        "Maunulan yhteiskoulu",
+        "menu",
+        "weather in Maunula",
+        "blog",
+        "COVID-19 data",
+        "HSL",
+        "Yle news"
+    ],
+    "swearwords": []
 }
